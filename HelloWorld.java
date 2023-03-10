@@ -5,8 +5,8 @@ public class HelloWorld {
 	public static void main(String args[]) { 
 
 		System.out.println("HELLO WORLD!");
-		int a = 10, b = 20;
-		System.out.println("a + b = "+(a+b));
+		int p = 1000, r = 500;
+		System.out.println("p + r = "+(p+r));
 
 	}
 
