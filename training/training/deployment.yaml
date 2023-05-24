@@ -1,0 +1,33 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: scholar-project
+spec:
+  selector:
+    matchLabels:
+      app: scholar-project
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: scholar-project
+    spec:
+      containers:
+        - name: scholar-project
+          image: scholar-project.jar:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: scholar-project-svc
+spec:
+  selector:
+    app: scholar-project
+  ports:
+    - protocol: "TCP"
+      port: 8080
+      targetPort: 8080
+  type: NodePort
